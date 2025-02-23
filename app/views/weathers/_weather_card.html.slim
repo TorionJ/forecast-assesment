@@ -1,0 +1,7 @@
+div
+  div class="flex flex-col gap-2 p-8 sm:flex-row sm:items-center sm:py-4"
+    img class="mx-auto block h-24 rounded-full sm:mx-0 sm:shrink-0" src="#{icon_uri(daily)}"
+    div class="space-y-0.5 text-wrap"
+      p class="text-lg font-semibold text-black" = "#{format_weather_weekday(daily.dt)} #{format_month_date(daily.dt)}"
+      p class="font-medium text-gray-500" = high_and_low_temp(daily.temp).html_safe
+      p class="font-medium text-gray-500" = daily.summary
