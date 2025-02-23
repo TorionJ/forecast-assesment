@@ -1,0 +1,38 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://nominatim.openstreetmap.org/search?accept-language=en&addressdetails=1&format=json&q=1500%20Sugar%20Bowl%20Dr,%20New%20Orleans,%20LA
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 23 Feb 2025 19:03:58 GMT
+      Content-Type:
+      - application/json; charset=utf-8
+      Content-Length:
+      - '762'
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - timeout=20
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        W3sicGxhY2VfaWQiOjI4MTA0ODQ3MCwibGljZW5jZSI6IkRhdGEgwqkgT3BlblN0cmVldE1hcCBjb250cmlidXRvcnMsIE9EYkwgMS4wLiBodHRwOi8vb3NtLm9yZy9jb3B5cmlnaHQiLCJvc21fdHlwZSI6InJlbGF0aW9uIiwib3NtX2lkIjo0NTk4ODYwLCJsYXQiOiIyOS45NTEwNDg5IiwibG9uIjoiLTkwLjA4MjMwNzYyNTM4OTAzIiwiY2xhc3MiOiJsZWlzdXJlIiwidHlwZSI6InN0YWRpdW0iLCJwbGFjZV9yYW5rIjozMCwiaW1wb3J0YW5jZSI6MC41MDg5NzU5NDAwMjQ0OCwiYWRkcmVzc3R5cGUiOiJsZWlzdXJlIiwibmFtZSI6IkNhZXNhcnMgU3VwZXJkb21lIiwiZGlzcGxheV9uYW1lIjoiQ2Flc2FycyBTdXBlcmRvbWUsIDE1MDAsIFN1Z2FyIEJvd2wgRHJpdmUsIE5ldyBPcmxlYW5zLCBPcmxlYW5zIFBhcmlzaCwgTG91aXNpYW5hLCA3MDExMiwgVW5pdGVkIFN0YXRlcyIsImFkZHJlc3MiOnsibGVpc3VyZSI6IkNhZXNhcnMgU3VwZXJkb21lIiwiaG91c2VfbnVtYmVyIjoiMTUwMCIsInJvYWQiOiJTdWdhciBCb3dsIERyaXZlIiwiY2l0eSI6Ik5ldyBPcmxlYW5zIiwiY291bnR5IjoiT3JsZWFucyBQYXJpc2giLCJzdGF0ZSI6IkxvdWlzaWFuYSIsIklTTzMxNjYtMi1sdmw0IjoiVVMtTEEiLCJwb3N0Y29kZSI6IjcwMTEyIiwiY291bnRyeSI6IlVuaXRlZCBTdGF0ZXMiLCJjb3VudHJ5X2NvZGUiOiJ1cyJ9LCJib3VuZGluZ2JveCI6WyIyOS45NDk4ODA1IiwiMjkuOTUyMjE5OCIsIi05MC4wODI0MzIzIiwiLTkwLjA3OTc0NjkiXX1d
+  recorded_at: Sun, 23 Feb 2025 19:03:57 GMT
+recorded_with: VCR 6.2.0
