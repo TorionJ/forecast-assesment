@@ -87,6 +87,7 @@ GEM
     bootsnap (1.18.4)
       msgpack (~> 1.2)
     builder (3.3.0)
+    byebug (11.1.3)
     capybara (3.40.0)
       addressable
       matrix
@@ -96,17 +97,34 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
+    coderay (1.1.3)
     concurrent-ruby (1.3.5)
     connection_pool (2.5.0)
+    crack (0.4.5)
+      rexml
     crass (1.0.6)
+    csv (3.3.2)
     date (3.4.1)
     debug (1.10.0)
       irb (~> 1.10)
       reline (>= 0.3.8)
     drb (2.2.1)
     erubi (1.13.1)
+    faraday (2.12.2)
+      faraday-net_http (>= 2.0, < 3.5)
+      json
+      logger
+    faraday-multipart (1.1.0)
+      multipart-post (~> 2.0)
+    faraday-net_http (3.4.0)
+      net-http (>= 0.5.0)
+    geocoder (1.8.5)
+      base64 (>= 0.1.0)
+      csv (>= 3.0.0)
     globalid (1.2.1)
       activesupport (>= 6.1)
+    hashdiff (1.0.1)
+    hashie (5.0.0)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.3)
@@ -121,6 +139,7 @@ GEM
     jbuilder (2.13.0)
       actionview (>= 5.0.0)
       activesupport (>= 5.0.0)
+    json (2.10.1)
     logger (1.6.6)
     loofah (2.24.0)
       crass (~> 1.0.2)
@@ -132,11 +151,20 @@ GEM
       net-smtp
     marcel (1.0.4)
     matrix (0.4.2)
+    method_source (1.1.0)
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
     minitest (5.25.4)
+    minitest-rails (7.1.1)
+      minitest (~> 5.20)
+      railties (>= 7.1.0, < 8.0.0)
+    mocha (2.7.1)
+      ruby2_keywords (>= 0.0.5)
     msgpack (1.8.0)
+    multipart-post (2.4.1)
     mutex_m (0.3.0)
+    net-http (0.6.0)
+      uri
     net-imap (0.4.19)
       date
       net-protocol
@@ -151,9 +179,22 @@ GEM
       racc (~> 1.4)
     nokogiri (1.17.2-x86_64-linux)
       racc (~> 1.4)
+    open-weather-ruby-client (0.6.0)
+      activesupport
+      faraday (>= 2.0.1)
+      faraday-multipart
+      hashie
     pp (0.6.2)
       prettyprint
     prettyprint (0.2.0)
+    pry (0.15.2)
+      coderay (~> 1.1)
+      method_source (~> 1.0)
+    pry-byebug (3.8.0)
+      byebug (~> 11.0)
+      pry (~> 0.10)
+    pry-rails (0.3.11)
+      pry (>= 0.13.0)
     psych (5.2.3)
       date
       stringio
@@ -205,6 +246,7 @@ GEM
     reline (0.6.0)
       io-console (~> 0.5)
     rexml (3.4.1)
+    ruby2_keywords (0.0.5)
     rubyzip (2.4.1)
     securerandom (0.3.2)
     selenium-webdriver (4.26.0)
@@ -213,6 +255,9 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    slim (5.2.1)
+      temple (~> 0.10.0)
+      tilt (>= 2.1.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -222,6 +267,7 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (2.0.4)
       mini_portile2 (~> 2.8.0)
+    sqlite3 (2.0.4-x86_64-darwin)
     stimulus-rails (1.3.4)
       railties (>= 6.0.0)
     stringio (3.1.5)
@@ -230,18 +276,26 @@ GEM
       tailwindcss-ruby (~> 4.0)
     tailwindcss-ruby (4.0.8-x86_64-darwin)
     tailwindcss-ruby (4.0.8-x86_64-linux)
+    temple (0.10.3)
     thor (1.3.2)
+    tilt (2.6.0)
     timeout (0.4.3)
     turbo-rails (2.0.11)
       actionpack (>= 6.0.0)
       railties (>= 6.0.0)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    uri (1.0.2)
+    vcr (6.2.0)
     web-console (4.2.1)
       actionview (>= 6.0.0)
       activemodel (>= 6.0.0)
       bindex (>= 0.4.0)
       railties (>= 6.0.0)
+    webmock (3.19.1)
+      addressable (>= 2.8.0)
+      crack (>= 0.3.2)
+      hashdiff (>= 0.4.0, < 2.0.0)
     websocket (1.2.11)
     websocket-driver (0.7.7)
       base64
@@ -259,18 +313,29 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  geocoder
   importmap-rails
   jbuilder
+  minitest
+  minitest-rails (~> 7.1.0)
+  mocha
+  open-weather-ruby-client
+  pry (~> 0.15.0)
+  pry-byebug
+  pry-rails
   puma (>= 5.0)
   rails (~> 7.1.5, >= 7.1.5.1)
   selenium-webdriver
+  slim
   sprockets-rails
   sqlite3 (>= 1.4)
   stimulus-rails
   tailwindcss-rails
   turbo-rails
   tzinfo-data
+  vcr
   web-console
+  webmock
 
 RUBY VERSION
    ruby 3.0.1p64

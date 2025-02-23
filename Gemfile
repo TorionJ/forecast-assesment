@@ -29,6 +29,20 @@ gem "tailwindcss-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+# Geocoder
+gem "geocoder"
+
+# OpenWeather API
+gem "open-weather-ruby-client"
+
+# pry for debugging
+gem "pry", '~> 0.15.0'
+gem "pry-rails"
+gem "pry-byebug"
+
+# slim templating engine
+gem "slim"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 
@@ -67,4 +81,9 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem "minitest"
+  gem "minitest-rails", "~> 7.1.0"
+  gem "mocha"
+  gem "vcr"
+  gem "webmock"
 end
