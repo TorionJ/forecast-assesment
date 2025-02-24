@@ -17,9 +17,9 @@ div class="flex flex-col"
         = form.text_field(:state, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline")
       div class="flex items-center justify-between"
         = form.submit "Search", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-  - if @cache_hit
-    div class="mb-2"
-      p class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" = "Cache hit*"
+        - if @cache_hit
+          div
+            p class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" = "Cache hit*"
   - if @weather_data.present?
     p class="text-3xl" = "#{@address.city}, #{@address.state} Forecast"
     p class="text-2xl" = "Currently it's #{format_degrees(@weather_data.current.temp)}".html_safe
