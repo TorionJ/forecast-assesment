@@ -5,6 +5,9 @@ class ForecastService
   EXCLUDED_DATA = %w[minutely hourly].freeze
 
   def self.call(lat:, lon:)
+    # Lat & Lon needs to be float numbers
+    # EXCLUDED_DATA is added to exclude unneccessay data
+    # Units come in 'standard', 'metric', and 'imperial'. I went with imperial since my application is based in US
     client.one_call(lat: lat, lon: lon, exclude: EXCLUDED_DATA, units: 'imperial')
   end
 

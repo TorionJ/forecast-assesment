@@ -2,6 +2,8 @@
 
 class WeathersController < ApplicationController
   def show
+    # Will have a default adress of the Superdome if no address params are present...WHODAT!!
+    # Responses are cached if successful for optimization
     if params[:address].present?
       address_attributes = address_params
     end
