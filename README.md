@@ -53,8 +53,8 @@ The Weather Forecaster Application allows you to check the weather forecast for 
 
 ## Usage
 
-- Type in the name of any city in the input field and press enter to see the weather forecast.
-- You will receive details such as temperature, humidity, and other relevant weather information for the chosen city.
+- Type in an address of any city in the input fields and click search to see the weather forecast.
+- You will receive details such as current temperature, weather summary, and other relevant weather information for the chosen city.
 
 ## Additional Information
 
