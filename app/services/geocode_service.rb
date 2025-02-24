@@ -11,17 +11,21 @@ class GeocodeService
   }.freeze
 
   def self.call(address)
+    # Address will be formatted in '<street>, <city>, <state>'
     geocode_data = validate_response(Geocoder.search(address))
     build_geocoded_hash(geocode_data)
   end
 
   def self.validate_response(response)
+    # Valid response will be a Hash, ex: response: {[ data: {...}, ... ]}
+    # if no data is there then the address is invalid.
     raise GeocodeResponseError, 'Could not find any data for the address' if response.first&.data.nil?
 
     response.first.data
   end
 
   def self.build_geocoded_hash(data)
+    # Returns a Hash, ex: { latitude: Float, longitude: Float, zipcode: String }
     geocode_hash = {}
     DATA_ATTRIBUTES_MAPPING.each_pair do |geocode_key, data_key|
       if data_key.split('-').count == 2
