@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-# Geocode service takes in an address and returns the latitude, longitude, and zipcode of said address if valid
+# Geocode service takes in a formatted address like "street, city, state" and returns the latitude, longitude, and zipcode of said address if valid
 class GeocodeService
   class GeocodeResponseError < StandardError; end
 
@@ -10,13 +10,19 @@ class GeocodeService
     zipcode: 'address-postcode'
   }.freeze
 
-  def self.call(address)
+  def initialize(address)
+    @address = address
+  end
+
+  def search
     # Address will be formatted in '<street>, <city>, <state>'
-    geocode_data = validate_response(Geocoder.search(address))
+    geocode_data = validate_response(Geocoder.search(@address))
     build_geocoded_hash(geocode_data)
   end
 
-  def self.validate_response(response)
+  private
+
+  def validate_response(response)
     # Valid response will be a Hash, ex: response: {[ data: {...}, ... ]}
     # if no data is there then the address is invalid.
     raise GeocodeResponseError, 'Could not find any data for the address' if response.first&.data.nil?
@@ -24,7 +30,7 @@ class GeocodeService
     response.first.data
   end
 
-  def self.build_geocoded_hash(data)
+  def build_geocoded_hash(data)
     # Returns a Hash, ex: { latitude: Float, longitude: Float, zipcode: String }
     geocode_hash = {}
     DATA_ATTRIBUTES_MAPPING.each_pair do |geocode_key, data_key|

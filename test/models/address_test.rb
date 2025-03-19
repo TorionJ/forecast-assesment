@@ -32,4 +32,11 @@ class AddressTest < ActiveSupport::TestCase
       end
     end
   end
+
+  describe '#formatted' do
+    it 'should format the address by <street>, <city>, <state>' do
+      address = Address.new(street: '10110 binary ave', city: 'microchip', state: 'solid')
+      assert_equal(address.formatted, '10110 binary ave, microchip, solid')
+    end
+  end
 end

@@ -1,6 +1,5 @@
 div class="flex flex-col"
   = render "shared/flash"
-
   div
     h1 class="text-6xl mb-8" = "Weather Forecaster"
 
@@ -23,6 +22,7 @@ div class="flex flex-col"
   - if @weather_data.present?
     p class="text-3xl" = "#{@address.city}, #{@address.state} Forecast"
     p class="text-2xl" = "Currently it's #{format_degrees(@weather_data.current.temp)}".html_safe
-    div class="flex flex-col"
-      - @weather_data.daily[1..].each do |forecast|
-        = render partial: "weather_card", locals: { daily: forecast }
+    - if @weather_data.daily.present?
+      div class="flex flex-col"
+        - @weather_data.daily[1..].each do |forecast|
+          = render partial: "weather_card", locals: { daily: forecast }

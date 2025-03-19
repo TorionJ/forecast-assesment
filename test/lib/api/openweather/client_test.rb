@@ -2,13 +2,13 @@
 
 require 'test_helper'
 
-class ForecastServiceTest < ActiveSupport::TestCase
-  describe '.call' do
-    subject { ForecastService }
+class API::Openweather::ClientTest < ActiveSupport::TestCase
+  describe '.one_call' do
+    subject { API::Openweather::Client }
     context "when there's a valid latitude and longitude" do
       it 'should return hash with forecasts' do
         VCR.use_cassette('valid_forecast_response') do
-          forecast = subject.call(lat: 29.9510489, lon: -90.08230762538903)
+          forecast = subject.one_call(lat: 29.9510489, lon: -90.08230762538903)
           assert(forecast.daily)
         end
       end
@@ -18,7 +18,7 @@ class ForecastServiceTest < ActiveSupport::TestCase
       it 'should return GeocodeResponseError' do
         VCR.use_cassette('invalid_forecast_response') do
           error = assert_raises OpenWeather::Errors::Fault do
-            subject.call(lat: '', lon: '')
+            subject.one_call(lat: '', lon: '')
           end
           assert_equal('Nothing to geocode', error.message)
         end
